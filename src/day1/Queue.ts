@@ -1,7 +1,6 @@
 type Node<T> = { value: T; next?: Node<T> };
 export default class Queue<T> {
     public length: number;
-
     private head?: Node<T>;
     private tail?: Node<T>;
 
@@ -13,21 +12,20 @@ export default class Queue<T> {
     enqueue(item: T): void {
         const node: Node<T> = { value: item, next: undefined };
         this.length++;
-        if (!this.tail) {
+        if (this.length === 1) {
             this.head = this.tail = node;
-            return;
+        } else {
+            if (!this.tail) return;
+            this.tail.next = node;
+            this.tail = node;
         }
-
-        this.tail.next = node;
-        this.tail = node;
     }
     deque(): T | undefined {
         if (!this.head) return undefined;
-        const node = this.head;
-        this.head = node.next;
-        node.next = undefined;
         this.length--;
-        if (this.length === 0) this.tail = undefined;
+        const node = this.head;
+        this.head = this.head.next;
+        node.next = undefined;
         return node.value;
     }
     peek(): T | undefined {

@@ -6,6 +6,7 @@ test("queue", function () {
     list.enqueue(5);
     list.enqueue(7);
     list.enqueue(9);
+    console.log("LIST", list);
 
     expect(list.deque()).toEqual(5);
     expect(list.length).toEqual(2);
@@ -17,12 +18,9 @@ test("queue", function () {
     list.enqueue(11);
     debugger;
     expect(list.deque()).toEqual(7);
-    console.log("list 7", list);
     expect(list.deque()).toEqual(9);
-    console.log("list 9", list);
     expect(list.peek()).toEqual(11);
     expect(list.deque()).toEqual(11);
-    console.log("list 11", list);
     expect(list.deque()).toEqual(undefined);
     expect(list.length).toEqual(0);
 
