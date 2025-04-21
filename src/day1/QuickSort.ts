@@ -24,5 +24,4 @@ function qs(arr: number[], low: number, high: number): void {
 }
 export default function quick_sort(arr: number[]): void {
     qs(arr, 0, arr.length - 1);
-    console.log("RESULT", arr);
 }
