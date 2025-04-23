@@ -5,7 +5,6 @@ function walk(
     visited: boolean[],
     path: number[],
 ): boolean {
-    console.log("PATH", path, curr);
     if (curr === needle) {
         path.push(curr);
         return true;
