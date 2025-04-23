@@ -26,7 +26,6 @@ export default function bfs(
     let curr = needle;
     while (parent[curr] !== -1) {
         path.push(curr);
-        //console.log("CURR", curr, "PARENT", parent[curr], "PATH", path);
         curr = parent[curr];
     }
 
